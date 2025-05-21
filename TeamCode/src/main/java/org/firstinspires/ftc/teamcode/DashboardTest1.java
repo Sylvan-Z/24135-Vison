@@ -29,6 +29,5 @@ public class DashboardTest1 extends OpMode {
     public void loop() {
         telemetry.addData("Encoder Reading", testedMotor.getCurrentPosition());
         telemetry.update();
-
     }
 }
