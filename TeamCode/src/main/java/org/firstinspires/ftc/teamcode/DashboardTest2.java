@@ -62,7 +62,7 @@ public class DashboardTest2 extends LinearOpMode {
 
         new VisionPortal.Builder()
                 .addProcessor(processor)
-                .setCamera(hardwareMap.get(WebcamName.class, "Webcam 1"))
+                .setCamera(hardwareMap.get(WebcamName.class, "Front Webcam"))
                 .build();
 
         FtcDashboard.getInstance().startCameraStream(processor, 0);

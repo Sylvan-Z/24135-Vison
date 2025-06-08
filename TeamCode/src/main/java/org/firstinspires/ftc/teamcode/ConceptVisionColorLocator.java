@@ -184,7 +184,6 @@ public class ConceptVisionColorLocator extends LinearOpMode
             for(ColorBlobLocatorProcessor.Blob b : blobs) {
                 RotatedRect boxFit = b.getBoxFit();
                 RotatedRect centerMarker = new RotatedRect(boxFit.center,new org.opencv.core.Size(20,20),45);
-                Imgproc.drawMarker();
                 telemetry.addLine(String.format("%5d  %4.2f   %5.2f  (%3d,%3d)",
                         b.getContourArea(), b.getDensity(), b.getAspectRatio(), (int) boxFit.center.x, (int) boxFit.center.y));
             }
