@@ -10,8 +10,9 @@ import java.util.List;
 
 public class Sample {
 
-    private Point ViscenterPoint;
-    private Point relPos;
+    public Point ViscenterPoint;
+    public Point relPos;
+    public ColorBlobLocatorProcessor.Blob blob;
 
     public Sample(ColorBlobLocatorProcessor.Blob blob, Pose3D relCam, CamFieldProfile CamProfile){
         List<Double> anglePoint=CamProfile.PixelToAngle(blob.getBoxFit().center);
@@ -25,5 +26,7 @@ public class Sample {
         this.relPos=new Point(
                 h*(-(Math.tan(x)*Math.cos(a)*h/Math.tan(a-y))-(Math.tan(x)*Math.sin(a))),
                 h*(-1/Math.tan(a-y)));
+
+        this.blob = blob;
     }
 }
