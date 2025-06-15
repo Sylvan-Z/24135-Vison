@@ -15,16 +15,16 @@ public class Sample {
     public ColorBlobLocatorProcessor.Blob blob;
 
     public Sample(ColorBlobLocatorProcessor.Blob blob, Pose3D relCam, CamFieldProfile CamProfile){
-        List<Double> anglePoint=CamProfile.PixelToAngle(blob.getBoxFit().center);
+        this.ViscenterPoint=CamProfile.PixelToAngle(blob.getBoxFit().center);
 
-        double a=-relCam.getOrientation().getPitch();
-        double h=-relCam.getPosition().z;
+        double a=Math.toRadians(relCam.getOrientation().getPitch());
+        double h=relCam.getPosition().z;
 
-        double x=anglePoint.get(0);
-        double y=anglePoint.get(1);
+        double x=Math.toRadians(-ViscenterPoint.x);
+        double y=Math.toRadians(-ViscenterPoint.y);
 
         this.relPos=new Point(
-                h*(-(Math.tan(x)*Math.cos(a)*h/Math.tan(a-y))-(Math.tan(x)*Math.sin(a))),
+                h*(-(Math.tan(x)*Math.cos(a)/Math.tan(a-y))-(Math.tan(x)*Math.sin(a))),
                 h*(-1/Math.tan(a-y)));
 
         this.blob = blob;

@@ -23,10 +23,10 @@ public class CamFieldProfile {
         this.Sizey=Sizey;
     }
 
-    public List<Double> PixelToAngle(Point screenPoint){
-        List<Double> anglePoint=new ArrayList<>();
-        anglePoint.add((screenPoint.x*FOVx)/Sizex);
-        anglePoint.add((screenPoint.y*FOVy)/Sizey);
-        return anglePoint;
+    public Point PixelToAngle(Point screenPoint){
+        return new Point(
+                ((screenPoint.x-(Sizex/2))*FOVx)/Sizex,
+                ((screenPoint.y-(Sizey/2))*FOVy)/Sizey
+        );
     }
 }

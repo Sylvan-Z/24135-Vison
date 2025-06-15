@@ -41,7 +41,7 @@ public class DashboardTest3 extends LinearOpMode {
                 .setContourMode(ColorBlobLocatorProcessor.ContourMode.ALL_FLATTENED_HIERARCHY)    // exclude blobs inside blobs
                 .setRoi(ImageRegion.asUnityCenterCoordinates(-1.0, 1.0, 1.0, -1.0))  // search central 1/4 of camera view
                 .setDrawContours(true)                        // Show contours on the Stream Preview
-                .setBlurSize(2)                               // Smooth the transitions between different colors in image
+                .setBlurSize(7)                               // Smooth the transitions between different colors in image
                 .build();
 
         VisionPortal portal = new VisionPortal.Builder()
@@ -82,8 +82,8 @@ public class DashboardTest3 extends LinearOpMode {
 
             telemetry.addData("Samples: ",Samples.size());
             for(Sample active : Samples){
-                telemetry.addLine(String.format("%5d  %4.2f   %5.2f  (%3d,%3d)  (%3d,%3d)",
-                        active.blob.getContourArea(), active.blob.getDensity(), active.blob.getAspectRatio(), (int) active.blob.getBoxFit().center.x, (int) active.blob.getBoxFit().center.y, (int) active.relPos.x, (int) active.relPos.y));
+                telemetry.addLine(String.format("%5d  %4.2f   %5.2f  (%3d,%3d)  (%3d,%3d)  (%3d,%3d)",
+                        active.blob.getContourArea(), active.blob.getDensity(), active.blob.getAspectRatio(), (int) active.blob.getBoxFit().center.x, (int) active.blob.getBoxFit().center.y, (int) active.ViscenterPoint.x, (int) active.ViscenterPoint.y, (int) active.relPos.x, (int) active.relPos.y));
             }
 
             FtcDashboard.getInstance().startCameraStream(portal, 0);
