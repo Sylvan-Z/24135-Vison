@@ -1,10 +1,6 @@
-package org.firstinspires.ftc.teamcode;
-
+package org.firstinspires.ftc.teamcode.coarsevisionproc;
 
 import org.opencv.core.Point;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class CamFieldProfile {
 
