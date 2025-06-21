@@ -63,7 +63,7 @@ public class DashboardTest4 extends LinearOpMode {
                 .setCamera(hardwareMap.get(WebcamName.class, "Webcam 1"))
                 .build();
 
-        List<ColorBlobLocatorProcessor> useProcessors=new ArrayList<ColorBlobLocatorProcessor>(Arrays.asList(blueColorLocator,yellowColorLocator));
+        List<ColorBlobLocatorProcessor> useProcessors=new ArrayList<>(Arrays.asList(blueColorLocator,yellowColorLocator));
 
         CamFieldProfile camFieldProfile = new CamFieldProfile(65.36816529,36.76959297,320,240);
         Pose3D relCam = new Pose3D(new Position(DistanceUnit.CM,0.0,0.0,25.0,0),new YawPitchRollAngles(AngleUnit.DEGREES,0,30,0.0,0));
