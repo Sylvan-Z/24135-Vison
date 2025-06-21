@@ -50,7 +50,7 @@ public class DashboardTest3 extends LinearOpMode {
         CamFieldProfile camFieldProfile = new CamFieldProfile(65.36816529,36.76959297,320,240);
         Pose3D relCam = new Pose3D(new Position(DistanceUnit.CM,0.0,0.0,25.0,0),new YawPitchRollAngles(AngleUnit.DEGREES,0,30,0.0,0));
 
-        List<Sample> Samples = new ArrayList<Sample>();
+        List<Sample> Samples = new ArrayList<>();
 
         telemetry=new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
 
@@ -72,7 +72,6 @@ public class DashboardTest3 extends LinearOpMode {
             // Display the size (area) and center location for each Blob.
             for(ColorBlobLocatorProcessor.Blob b : blobs) {
                 RotatedRect boxFit = b.getBoxFit();
-                RotatedRect centerMarker = new RotatedRect(boxFit.center,new org.opencv.core.Size(20,20),45);
                 Samples.add(new Sample(b,relCam,camFieldProfile));
             }
 

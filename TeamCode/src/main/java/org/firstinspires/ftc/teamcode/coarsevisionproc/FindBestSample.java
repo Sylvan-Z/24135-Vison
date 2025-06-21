@@ -9,7 +9,7 @@ import java.util.List;
 public class FindBestSample {
     public static Sample findBestSample(List<ColorBlobLocatorProcessor> colorLocators, Pose3D relcam, CamFieldProfile CamProfile){
 
-        List<ColorBlobLocatorProcessor.Blob> blobs = new ArrayList<ColorBlobLocatorProcessor.Blob>();
+        List<ColorBlobLocatorProcessor.Blob> blobs = new ArrayList<>();
 
         for(ColorBlobLocatorProcessor colorLocator:colorLocators){
             blobs.addAll(colorLocator.getBlobs());
